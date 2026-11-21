@@ -1,8 +1,8 @@
 # 🏮 LANTERN HARBOR — Spot the Difference
 
-[![make.fun](https://img.shields.io/badge/make.fun-best--spot--the--difference--game--20261121--0451-amber)](https://make.fun/competitions/best-spot-the-difference-game-20261121-0451)
-[![rank](https://img.shields.io/badge/rank-top%2010%20target-2e7d6b)](https://make.fun/competitions/best-spot-the-difference-game-20261121-0451)
-[![reward](https://img.shields.io/badge/reward-%2450%20pot-gold)](https://make.fun/competitions/best-spot-the-difference-game-20261121-0451)
+[![make.fun](https://make.fun/badge/best-spot-the-difference-game-20261121-0451.svg)](https://make.fun/bounty/best-spot-the-difference-game-20261121-0451?utm_source=github&utm_medium=readme&utm_campaign=best-spot-the-difference-game-20261121-0451)
+[![rank](https://make.fun/badge/best-spot-the-difference-game-20261121-0451/nexrodestro/nexro-spot-difference/rank.svg)](https://make.fun/bounty/best-spot-the-difference-game-20261121-0451/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=best-spot-the-difference-game-20261121-0451)
+[![reward](https://make.fun/badge/best-spot-the-difference-game-20261121-0451/nexrodestro/nexro-spot-difference/reward.svg)](https://make.fun/bounty/best-spot-the-difference-game-20261121-0451?utm_source=github&utm_medium=readme&utm_campaign=best-spot-the-difference-game-20261121-0451)
 
 A cozy hand-drawn-style spot-the-difference game set in a harbor town at
 dusk. Two pictures hang side by side — they look the same, but 22 little
