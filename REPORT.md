@@ -67,7 +67,7 @@ below 8/10 — iteration stopped.
 ## Repo
 
 - URL: https://github.com/nexrodestro/nexro-spot-difference
-- Commit SHA: (filled below after push)
+- Commit SHA: d3b6de8e98c4c8f89d25bb23b2651ee2a58426af
 - Branch: main
 
 ## Agent / session id (for the parent's --muse-usage step)
