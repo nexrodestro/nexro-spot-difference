@@ -1,0 +1,220 @@
+/* LANTERN HARBOR — dusk palette: deep teal, warm amber, paper cream. */
+:root {
+  --bg: #16202e;
+  --panel: #1d2c40;
+  --teal: #2e7d6b;
+  --amber: #e8b23a;
+  --amber-bright: #ffd98a;
+  --coral: #c65b4e;
+  --cream: #f3ead8;
+  --muted: #9ab0c4;
+  --line: #33506e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+#wrap {
+  width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  background: var(--bg);
+}
+
+/* ---- HUD ---- */
+#hud {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 64px;
+  padding: 0 14px;
+  background: var(--panel);
+  border-bottom: 2px solid var(--line);
+}
+
+#hud .brand {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--amber-bright);
+  white-space: nowrap;
+}
+
+#hud .level-name {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+#hud .spacer { flex: 1; }
+
+#hud .timer-box { text-align: center; line-height: 1.05; }
+#hud .timer {
+  font-size: 24px;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+#hud .par-label { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+
+#parbar {
+  width: 130px;
+  height: 8px;
+  background: #0e1622;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+#parbar-fill {
+  height: 100%;
+  width: 100%;
+  background: var(--teal);
+  transition: width 0.3s linear;
+}
+#parbar-fill.over { background: var(--coral); }
+
+#hud .score-box { text-align: center; line-height: 1.05; }
+#hud .score { font-size: 24px; font-weight: bold; color: var(--amber-bright); }
+#hud .score-label { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+
+#left-count {
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  background: var(--coral);
+  border-radius: 8px;
+  padding: 6px 14px;
+  white-space: nowrap;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+#left-count .n { font-size: 30px; }
+
+button {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--cream);
+  background: var(--teal);
+  border: 1px solid #4a9a89;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.15); }
+button:disabled { opacity: 0.4; cursor: default; }
+button.warn { background: #6b4a2e; border-color: #a87c4a; }
+button.ghost { background: transparent; border-color: var(--line); }
+
+/* ---- Canvas + panels ---- */
+#stage { position: relative; }
+#game {
+  display: block;
+  width: 1280px;
+  height: 700px;
+  cursor: crosshair;
+  background: #0e1622;
+}
+
+#bottombar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+  padding: 0 14px;
+  background: var(--panel);
+  border-top: 2px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+#bottombar .keys { letter-spacing: 0.5px; }
+#bottombar .spacer { flex: 1; }
+#found-list {
+  color: var(--amber-bright);
+  font-style: italic;
+  max-width: 640px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---- Overlays (title / win / finale / pause) ---- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 22, 34, 0.82);
+  z-index: 10;
+}
+.overlay.hidden { display: none; }
+
+.card {
+  width: 640px;
+  max-width: 92%;
+  background: var(--panel);
+  border: 2px solid var(--amber);
+  border-radius: 14px;
+  padding: 28px 34px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+.card h1 {
+  font-size: 44px;
+  letter-spacing: 3px;
+  color: var(--amber-bright);
+  margin-bottom: 6px;
+}
+.card h2 {
+  font-size: 30px;
+  color: var(--amber-bright);
+  margin-bottom: 8px;
+}
+.card .sub { font-size: 17px; font-style: italic; color: var(--muted); margin-bottom: 16px; }
+.card p { font-size: 16px; line-height: 1.55; margin-bottom: 12px; }
+.card .howto { text-align: left; font-size: 15px; line-height: 1.7; margin: 0 auto 16px; width: 480px; }
+.card .howto b { color: var(--amber-bright); }
+
+.level-row { display: flex; gap: 10px; justify-content: center; margin: 14px 0 18px; }
+.level-btn {
+  width: 170px;
+  padding: 12px 8px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.level-btn small { display: block; font-weight: normal; font-size: 12px; color: var(--muted); }
+
+.big-btn {
+  font-size: 19px;
+  padding: 12px 30px;
+  margin-top: 6px;
+}
+
+.stars { font-size: 40px; letter-spacing: 8px; color: var(--amber); margin: 6px 0 10px; }
+.stars .dim { color: #4a5a6e; }
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 20px;
+  width: 420px;
+  margin: 10px auto 16px;
+  font-size: 17px;
+  text-align: left;
+}
+.stat-grid b { float: right; color: var(--amber-bright); }
+#selftest {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 20;
+  font: 12px monospace;
+  color: #9fe8b0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  white-space: pre;
+}

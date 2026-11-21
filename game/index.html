@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LANTERN HARBOR — Spot the Difference</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+  <div id="hud">
+    <div class="brand">🏮 LANTERN HARBOR</div>
+    <div class="level-name" id="level-name">Harbor at Dusk</div>
+    <div class="spacer"></div>
+    <div class="timer-box">
+      <div class="timer" id="timer">0:00</div>
+      <div class="par-label">PAR <span id="par">3:00</span></div>
+    </div>
+    <div id="parbar" title="Par time"><div id="parbar-fill"></div></div>
+    <div class="score-box">
+      <div class="score" id="score">0</div>
+      <div class="score-label">SCORE</div>
+    </div>
+    <div id="left-count">Differences left: <span class="n" id="left-n">7</span></div>
+    <button id="hint-btn" title="Hint (H) — 3 per level, −50 pts">💡 Hint (<span id="hints-n">3</span>)</button>
+    <button id="mute-btn" class="ghost" title="Mute (M)">🔊</button>
+    <button id="pause-btn" class="ghost" title="Pause (P)">⏸</button>
+  </div>
+
+  <div id="stage">
+    <canvas id="game" width="1280" height="700"></canvas>
+
+    <div id="title-screen" class="overlay">
+      <div class="card">
+        <h1>🏮 LANTERN HARBOR</h1>
+        <div class="sub">A spot-the-difference game in a harbor town at dusk</div>
+        <p>Two pictures hang side by side. They look the same — but <b>7 (or 8)</b>
+        little things are different. Click a difference on <b>either</b> picture
+        to ring it in red. Find them all before the par time runs out!</p>
+        <div class="howto">
+          🖱️ <b>Click</b> a difference on either panel &nbsp;·&nbsp; +100 pts per find<br>
+          💡 <b>H</b> — hint (3 per level, −50 pts) &nbsp;·&nbsp; <b>R</b> — restart level<br>
+          ⏸ <b>P</b> — pause &nbsp;·&nbsp; <b>M</b> — mute &nbsp;·&nbsp; Wrong click: −25 pts<br>
+          ⭐ 3 stars = finish under par with ≥ 90% accuracy
+        </div>
+        <div class="level-row" id="level-row"></div>
+        <button class="big-btn" id="start-btn">▶ &nbsp;Start Playing</button>
+        <p style="margin-top:12px;font-size:13px;color:var(--muted)" id="best-line"></p>
+      </div>
+    </div>
+
+    <div id="win-screen" class="overlay hidden">
+      <div class="card">
+        <h2 id="win-title">Level Complete!</h2>
+        <div class="stars" id="win-stars">★★★</div>
+        <div class="stat-grid">
+          <div>Time <b id="win-time">0:00</b></div>
+          <div>Par <b id="win-par">3:00</b></div>
+          <div>Accuracy <b id="win-acc">100%</b></div>
+          <div>Level score <b id="win-score">0</b></div>
+        </div>
+        <p id="win-flavor" style="font-style:italic;color:var(--muted)"></p>
+        <button class="big-btn" id="next-btn">Next Level →</button>
+        <button class="big-btn ghost" id="replay-btn" style="margin-left:8px">↻ Replay</button>
+      </div>
+    </div>
+
+    <div id="finale-screen" class="overlay hidden">
+      <div class="card">
+        <h2>🎆 You Found Them All!</h2>
+        <div class="stars">★★★</div>
+        <p>All 22 differences across the three scenes — the harbor, the market,
+        and the dawn lighthouse — are ringed in red. The lanterns burn bright tonight.</p>
+        <div class="stat-grid">
+          <div>Total score <b id="final-score">0</b></div>
+          <div>Total time <b id="final-time">0:00</b></div>
+          <div>Accuracy <b id="final-acc">100%</b></div>
+          <div>Best score <b id="final-best">0</b></div>
+        </div>
+        <button class="big-btn" id="again-btn">↻ Play Again</button>
+      </div>
+    </div>
+
+    <div id="pause-screen" class="overlay hidden">
+      <div class="card">
+        <h2>Paused</h2>
+        <p>The harbor waits for you. Press <b>P</b> or the button below to keep hunting.</p>
+        <button class="big-btn" id="resume-btn">▶ Resume</button>
+      </div>
+    </div>
+
+    <div id="selftest" style="display:none"></div>
+  </div>
+
+  <div id="bottombar">
+    <span class="keys">Click either picture · H hint · R restart · P pause · M mute · Enter start</span>
+    <div class="spacer"></div>
+    <span id="found-list"></span>
+  </div>
+</div>
+
+<script src="audio.js"></script>
+<script src="scenes.js"></script>
+<script src="shots.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
